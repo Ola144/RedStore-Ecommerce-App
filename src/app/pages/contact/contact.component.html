@@ -1,0 +1,127 @@
+<div class="container-fluid contactDiv" style="width: 100%; margin: 70px auto;">
+    <div class="feedBackBtn">
+        @if (!isFeedBackVisible) {
+        <button class="btn btn-secondary text-end mb-3" (click)="getFeedback()">Check
+            Feedback</button>
+        } @else {
+        <button class="btn btn-danger text-end mb-3" (click)="getFeedback()">Close</button>
+        }
+    </div>
+
+    <div class="row p-3">
+        <div [class]="isFeedBackVisible ? 'col-lg-8 col-md-6 col-sm-12 mb-3' : 'col-md-8 formDiv'">
+            <div class="contact-info">
+                <h3 class="text-center text-dark fw-bold my-3">Get In Touch</h3>
+                <p class="text-dark mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti illum
+                    tempore
+                    adipisci blanditiis dolores nihil autem, eaque labore dolorem alias quam voluptates deserunt
+                    corrupti,
+                    doloremque earum corporis nemo? Velit, voluptates?</p>
+                <div class="mt-5">
+                    <p><span> <img src="/public/assets/address-icon.png" style="width: 25px; margin-left: 5px;"> </span>
+                        545
+                        Island Chicago, IL
+                        99191</p>
+                    <p><span><img src="/public/assets/call-icon.png" style="width: 25px; margin-left: 5px;"></span> +1
+                        (555)
+                        234-5678</p>
+                    <p><span><img src="/public/assets/email-icon.png" style="width: 25px; margin-left: 5px;"></span>
+                        hello&#64;redstoree.com</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form #contactForm="ngForm">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" id="firstName" name="firstName" class="form-control" required
+                            #firstName="ngModel" [(ngModel)]="contactUsObj.firstName"
+                            [class]="firstName.invalid && firstName.touched ? 'is-invalid' : ''">
+                        @if (firstName.invalid && firstName.touched) {
+                        <div class="text-danger">
+                            @if (firstName.errors?.['required']) {
+                            <span>*First name is a required field!</span>
+                            }
+                        </div>
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control" required
+                            #lastName="ngModel" [(ngModel)]="contactUsObj.lastName"
+                            [class]="lastName.invalid && lastName.touched ? 'is-invalid' : ''">
+                        @if (lastName.invalid && lastName.touched) {
+                        <div class="text-danger">
+                            @if (lastName.errors?.['required']) {
+                            <span>*Last name is a required field!</span>
+                            }
+                        </div>
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailId" class="form-label">Email</label>
+                        <input type="email" id="emailId" name="emailId" class="form-control" required email
+                            #emailId="ngModel" [(ngModel)]="contactUsObj.emailId"
+                            [class]="emailId.invalid && emailId.touched ? 'is-invalid' : ''">
+                        @if (emailId.invalid && emailId.touched) {
+                        <div class="text-danger">
+                            @if (emailId.errors?.['required']) {
+                            <span>*Email name is a required field!</span>
+                            }
+                            @if (emailId.errors?.['email']) {
+                            <span>*Please provide a valid email address!</span>
+                            }
+                        </div>
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required
+                            #phoneNumber="ngModel" [(ngModel)]="contactUsObj.phoneNumber"
+                            [class]="phoneNumber.invalid && phoneNumber.touched ? 'is-invalid' : ''">
+                        @if (phoneNumber.invalid && phoneNumber.touched) {
+                        <div class="text-danger">
+                            @if (phoneNumber.errors?.['required']) {
+                            <span>*Phone number is a required field!</span>
+                            }
+                        </div>
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea name="message" id="message" class="form-control" required #message="ngModel"
+                            [(ngModel)]="contactUsObj.message"
+                            [class]="message.invalid && message.touched ? 'is-invalid' : ''"></textarea>
+                        @if (message.invalid && message.touched) {
+                        <div class="text-danger">
+                            @if (message.errors?.['required']) {
+                            <span>*Message is a required field!</span>
+                            }
+                        </div>
+                        }
+                    </div>
+                    <div class="contact-btn">
+                        <button class="btn btn-danger w-100" [disabled]="contactForm.invalid"
+                            (click)="sendMessage()">Let's
+                            talk</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        @if (isFeedBackVisible) {
+        <div class="col-lg-4 col-md-6 col-sm-12 p-4" style="background-color: #19194a; height: fit-content;">
+            @for (item of feedBackList$ | async; track $index) {
+            <div class="text-light card m-1 p-3 rounded-5" style="background-color: rgb(140, 18, 18);">
+                <p class="m-0"><span class="text-secondary fw-bold">Name:</span> {{item.firstName}} {{item.lastName}}
+                </p>
+                <p class="m-0"><span class="text-secondary fw-bold">Email:</span> {{item.emailId}} </p>
+                <p class="m-0"><span class="text-secondary fw-bold">Phone No:</span> {{item.phoneNumber}} </p>
+                <p class="m-0"><span class="text-secondary fw-bold">Message:</span> {{item.message}} </p>
+            </div>
+            }
+
+        </div>
+        }
+
+    </div>
+
+</div>

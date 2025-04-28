@@ -1,0 +1,26 @@
+.cartBtn {
+    position: absolute;
+    top: 15px;
+    right: 95px;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+.navbar {
+    z-index: 15;
+}
+
+.cartDeleteBtn {
+    cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    .cartBtn {
+    position: absolute;
+    top: 15px;
+    right: 55px;
+}
+}

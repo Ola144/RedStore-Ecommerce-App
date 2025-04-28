@@ -1,0 +1,58 @@
+<section class="account-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/public/assets/image1.png" width="100%" />
+      </div>
+      <div class="col-md-6">
+        <div class="form-container">
+          <div class="form-btn">
+            <span (click)="login()">Login</span>
+            <span (click)="register()">Register</span>
+            <hr id="Indicator" #indicator />
+          </div>
+
+          <form id="LoginForm" class="w-100" #loginForm>
+            <input type="text" class="form-control" placeholder="Username" name="username"
+              [(ngModel)]="loginUser.username" />
+            <div class="position-relative">
+              <input type="password" class="form-control" placeholder="Password" name="password"
+                [(ngModel)]="loginUser.password" #loginPassword />
+              @if (isShowIconVisible) {
+              <img src="/public/assets/show-icon.png" class="eye-icon" (click)="showLoginPassword()">
+              } @else {
+              <img src="/public/assets/hide-icon.png" class="eye-icon" (click)="showLoginPassword()">
+              }
+            </div>
+
+            <button type="button" (click)="onLogin()" class="btn btn-primary">Login</button>
+            <a>Forgot Password</a>
+          </form>
+
+          <form id="RegForm" class="w-100" #regForm>
+            <input type="text" class="form-control" placeholder="Username" name="username"
+              [(ngModel)]="registerUser.username" />
+            <input type="email" class="form-control" placeholder="Email" name="email"
+              [(ngModel)]="registerUser.email" />
+            <div class="position-relative">
+              <input type="password" class="form-control" placeholder="Password" name="password"
+                [(ngModel)]="registerUser.password" #registerPassword />
+
+              @if (isShowIconVisible) {
+              <img src="/public/assets/show-icon.png" class="eye-icon" (click)="showRegisterPassword()">
+              } @else {
+              <img src="/public/assets/hide-icon.png" class="eye-icon" (click)="showRegisterPassword()">
+              }
+
+
+            </div>
+
+            <button type="button" class="btn btn-primary" (click)="onRegister()">
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,128 @@
+<div class="container-fluid" style="background: radial-gradient(#fff, #ecaeae); height: 100%; padding: 50px;">
+    <div class="row justify-content-center align-items-center pt-5">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-lg-left text-sm-center mb-3">
+            <h1 class="text-dark fw-bold">Give Your Workout <br>A New Style!</h1>
+            <p class="text-secondary fw-bold mb-5">Success isn't always about greatness. It's about consistency.
+                <br>Consistent hard work gains success. Greatness will come.
+            </p>
+            <button class="btn btn-danger rounded-5" routerLink="/products">Expore Now <img
+                    src="/public/assets/arrow-right.png" style="width: 20px" alt=""></button>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-23">
+            <img [src]="bannerImg" style="width: 100%;">
+        </div>
+    </div>
+</div>
+
+<!-- CATEGORY PRODUCTS SESSION -->
+<div class="container my-5">
+    <div class="row">
+        @for (item of categoryProducts; track $index) {
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-2">
+            <img [src]="item.image" alt="" style="width: 100%;">
+        </div>
+        }
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="title text-center">
+        <h3>Featured Products</h3>
+    </div>
+    <div class="row">
+        @for (item of featuredProducts | async; track $index) {
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-3 hoverDiv productDiv">
+            <app-product-card [product]="item"></app-product-card>
+        </div>
+        }
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="title text-center">
+        <h3>Latest Products</h3>
+    </div>
+    <div class="row">
+        @for (item of latetestProducts | async; track $index) {
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-3 hoverDiv productDiv">
+            <app-product-card [product]="item"></app-product-card>
+        </div>
+        }
+    </div>
+</div>
+
+<div class="container-fluid" style="background: radial-gradient(#fff, #f4abab); padding: 50px;">
+    <div
+        class="d-flex flex-lg-nowrap flex-md-nowrap flex-sm-wrap flex-xs-wrap align-items-center justify-content-center exclusive">
+        <div class="me-4 mb-3">
+            <img [src]="exclusiveImg" alt="" style="width: 100%;">
+        </div>
+        <div class="ms-4 text-md-center text-sm-left">
+            <p class="fw-bold mb-4" style="font-size: 25px;">Exclusively Available on RedStore</p>
+            <h3 class="fw-bolder mb-2" style="font-size: 30px;">Smart Band 4</h3>
+            <p class="mb-4">The Mi Smart Band 4 features a 39.9% larger (than Mi Band 3) AMOLED color full touch display
+                with adustable brightness, so everything is clear as can be.</p>
+            <button class="btn btn-danger rounded-5">By Now <img src="/public/assets/arrow-right.png"
+                    style="width: 20px" alt=""></button>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="width: 100%; margin: 40px auto;">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center mb-3 hoverDiv" style="width: 350px; height: 250px;">
+            <div class="shadow-lg p-4">
+                <p class="text-secondary fw-bold" style="font-size: 13px;">Lorem, ipsum dolor sit amet consectetur
+                    adipisicing elit. Unde cum laudantium modi molestiae ullam dolorum similique dignissimos suscipit!
+                    Nulla itaque veritatis ratione amet voluptatibus temporibus reiciendis minima alias, necessitatibus
+                    natus!</p>
+                <img src="/public/assets/user-1.png" style="width: 50px;  height: 50px;" class="rounded-circle"
+                    alt="User">
+                <small class="d-block text-secondary fw-bold">Sean Parker</small>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center mb-3 hoverDiv" style="width: 350px; height: 250px;">
+            <div class="shadow-lg p-4">
+                <p class="text-secondary fw-bold" style="font-size: 13px;">Lorem, ipsum dolor sit amet consectetur
+                    adipisicing elit. Unde cum laudantium modi molestiae ullam dolorum similique dignissimos suscipit!
+                    Nulla itaque veritatis ratione amet voluptatibus temporibus reiciendis minima alias, necessitatibus
+                    natus!</p>
+                <img src="/public/assets/user-2.png" style="width: 50px;  height: 50px;" class="rounded-circle"
+                    alt="User">
+                <small class="d-block text-secondary fw-bold">Mike Smith</small>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center mb-3 hoverDiv" style="width: 350px; height: 250px;">
+            <div class="shadow-lg p-4">
+                <p class="text-secondary fw-bold" style="font-size: 13px;">Lorem, ipsum dolor sit amet consectetur
+                    adipisicing elit. Unde cum laudantium modi molestiae ullam dolorum similique dignissimos suscipit!
+                    Nulla itaque veritatis ratione amet voluptatibus temporibus reiciendis minima alias, necessitatibus
+                    natus!</p>
+                <img src="/public/assets/user-3.png" style="width: 50px;  height: 50px;" class="rounded-circle"
+                    alt="User">
+                <small class="d-block text-secondary fw-bold">Nabel Joe</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin: 40px auto;">
+    <div class="row justify-content-center">
+        <div class="col-lg-2 col-md-4 col-sm-6 logoDiv">
+            <img src="/public/assets/logo-godrej.png" alt="" class="logo">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 logoDiv">
+            <img src="/public/assets/logo-oppo.png" alt="" class="logo">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 logoDiv">
+            <img src="/public/assets/logo-coca-cola.png" alt="" class="logo">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 logoDiv">
+            <img src="/public/assets/logo-paypal.png" alt="" class="logo">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 logoDiv">
+            <img src="/public/assets/logo-philips.png" alt="" class="logo">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 d-none"></div>
+    </div>
+</div>

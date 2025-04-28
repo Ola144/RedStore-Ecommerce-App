@@ -1,0 +1,29 @@
+<div class="container mx-auto" style="margin-top: 50px;">
+    <div class="d-flex align-items-center justify-content-between py-4 mx-2">
+        <h2 class="text-dark fw-bold">All Products</h2>
+        <div class="d-flex align-items-center justify-content-center">
+            <input type="text" class="form-control me-1" placeholder="Search By Product Name..." #inputValue
+                style="width: 80%;">
+            @if (isSearchBtnVisible) {
+            <button class="btn btn-primary btn-sm" (click)="onSearch(inputValue)">Search</button>
+            }
+
+            @if (isLoadProductsBtnVisible) {
+            <button class="btn btn-secondary btn-sm" (click)="loadAllProducts()">Load All Products</button>
+            }
+
+        </div>
+        <div>
+            <button class="btn btn-outline-primary btn-sm me-1" (click)="sortByPrice()">Sort By Price</button>
+            <button class="btn btn-outline-primary btn-sm" (click)="sortByRating()">Sort By Rating</button>
+        </div>
+    </div>
+
+    <div class="row">
+        @for (item of products; track $index) {
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-3 hoverDiv productDiv">
+            <app-product-card [product]="item"></app-product-card>
+        </div>
+        }
+    </div>
+</div>

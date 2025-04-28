@@ -1,0 +1,109 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-light position-fixed top-0 w-100">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="dashboard">
+      <img src="/public/assets/logo.png" style="width: 100px;" alt="Logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#redstorenavbar">
+      <span class="navbar-toggler-icon" style="color: #000;">
+        <img src="/public/assets/menu.png" style="width: 20px; height: 20px;" alt="">
+      </span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="redstorenavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a routerLink="dashboard" routerLinkActive="active" class="nav-link cursor-pointer text-dark">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="products" routerLinkActive="active" class="nav-link cursor-pointer text-dark">Products</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="about-us" routerLinkActive="active" class="nav-link cursor-pointer text-dark">About</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="contact" routerLinkActive="active" class="nav-link cursor-pointer text-dark">Contact</a>
+        </li>
+      </ul>
+      <div class="d- flex">
+        <button class="btn btn-danger me-2" (click)="onLogout()">Logout</button>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-outline-none cartBtn" data-bs-toggle="offcanvas" data-bs-target="#cart"
+    [matBadge]="cartItems.length" matBadgePosition="above before" matBadgeSize="small">
+    <img src="/public/assets/cart.png" style="width: 30px; height: 30px;" alt="Cart" />
+  </button>
+</nav>
+
+<!-- Shopping Cart Offcanvas -->
+<div class="offcanvas offcanvas-end" id="cart">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">SHOPPING CART</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body mt-3">
+    <table class="table">
+      <thead>
+        <tr class="bg-danger">
+          <th class="ms-2">Product</th>
+          <th>Qauntity</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of cartItems; track $index) {
+        <tr class="bg-light">
+          <td>
+            <div class="d-flex align-items-start me-2">
+              <img [src]="item.image" style="width: 50px">
+              <div>
+                <small class="d-block text-secondary">Price: {{item.price | currency}}</small>
+                <small class="d-block text-danger cartDeleteBtn" (click)="onDeleteCartItem(item.id)">Remove</small>
+              </div>
+            </div>
+          </td>
+          <td>
+            <input type="number" min="1" style="width: 50px;" class="form-control" [(ngModel)]="item.count">
+          </td>
+          <td>
+            <p class="text-dark">{{ getAmountBaseOnQuantity(item) | currency}}</p>
+          </td>
+        </tr>
+        }
+      </tbody>
+
+
+    </table>
+
+    <hr class="bg-danger" style="width: 90%; height: 5px; margin: 10px auto;">
+
+    <div class="my-2 mx-auto">
+      <table class="table w-100">
+        <tr class="d-flex align-items-center justify-content-between mb-4">
+          <td class="fw-bold">Total</td>
+          <td>{{getTotalAmount() | currency}}</td>
+        </tr>
+        <tr class="d-flex align-items-center justify-content-between mb-4">
+          <td class="fw-bold">Tax</td>
+          <td>{{getTaxAmount() | currency}}</td>
+        </tr>
+        <tr class="d-flex align-items-center justify-content-between mb-4">
+          <td class="fw-bold">Grand Total</td>
+          <td>{{getTotalAmount() + getTaxAmount() | currency}}</td>
+        </tr>
+      </table>
+      <button class="btn btn-danger" routerLink="checkout">Checkout</button>
+    </div>
+  </div>
+</div>
+
+
+<div
+  style="position: fixed; z-index: 15; bottom: 0; right: 0px; background-color: blue; color: white; padding: 0px 10px;">
+  @if (isLoggedIn) {
+  Welcome to RedStore:
+  <p class="fw-bold mt-2 text-danger text-center" style="line-height: 5px; ">
+    {{loggedUserItem?.username.toUpperCase()}}</p>
+  }
+
+</div>

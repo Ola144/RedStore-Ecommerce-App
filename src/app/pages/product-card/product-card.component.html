@@ -1,0 +1,38 @@
+<div class="shadow-lg">
+    <img [src]="product.image" style="width: 100%;">
+    <div class="d-flex align-items-start justify-content-between p-2" style="width: 100%">
+        <div>
+            <small class="text-secondary" style="font-size: 10px; font-weight: bold;">{{product.productName}}</small>
+            <small class="d-block">{{product.price | currency}}</small>
+        </div>
+        <div class="text-end">
+            <small class="text-light fs-1">
+                <img class="text-danger fw-bold" style="width: 15px; height: 15px;"
+                    [src]="product.rating > 0 ? filledStar : emptyStar">
+                <img class="text-danger fw-bold" style="width: 15px; height: 15px;"
+                    [src]="product.rating > 1 ? filledStar : emptyStar">
+                <img class="text-danger fw-bold" style="width: 15px; height: 15px;"
+                    [src]="product.rating > 2 ? filledStar : emptyStar">
+                <img class="text-danger fw-bold" style="width: 15px; height: 15px;"
+                    [src]="product.rating > 3 ? filledStar : emptyStar">
+                <img class="text-danger fw-bold" style="width: 15px; height: 15px;"
+                    [src]="product.rating > 4 ? filledStar : emptyStar">
+            </small>
+            @if (product.availableQty == 0) {
+            <button class="btn btn-secondary btn-sm d-block" disabled>Out of Stock</button>
+            }@else {
+            <button class="btn btn-primary btn-sm d-block" (click)="addToCart(product)">
+                Add To Cart
+            </button>
+            }
+        </div>
+    </div>
+
+    <div class="availableQtyDiv" matTooltip="Available Quantity"
+        [class]="product.availableQty == 0 ? 'bg-danger rounded-circle d-flex align-items-center justify-content-center shadow-1' : 'bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1'">
+        <span>{{product.availableQty}}</span>
+    </div>
+
+
+
+</div>

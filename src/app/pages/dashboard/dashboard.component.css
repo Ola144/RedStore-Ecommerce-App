@@ -1,0 +1,33 @@
+.title {
+    margin-bottom: 50px;
+}
+
+.title h3::after {
+    content: '';
+    width: 100px;
+    height: 8px;
+    background: #f22b2b;
+    position: absolute;
+    transform: translate(-150px, 40px);
+    border-radius: 5px;
+}
+
+.logoDiv {
+    margin-right: 25px;
+}
+
+.logo {
+    width: 200px;
+    filter: grayscale(1);
+    cursor: pointer;
+}
+
+.logo:hover {
+    filter: grayscale(0);
+}
+
+@media (max-width: 575px) {
+    .exclusive{
+        flex-wrap: wrap !important;
+    }
+}

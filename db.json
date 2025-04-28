@@ -1,0 +1,295 @@
+{
+  "register": [
+    {
+      "id": "af2d",
+      "username": "palmer20",
+      "email": "palmercole@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "login": [
+    {
+      "id": "0af3",
+      "username": "palmer20",
+      "password": "1234"
+    },
+    {
+      "id": "1496",
+      "username": "palmer20",
+      "password": "1234"
+    },
+    {
+      "id": "4ac6",
+      "username": "agbola1999",
+      "password": "1999"
+    }
+  ],
+  "getAllCategories": [
+    {
+      "id": "0",
+      "image": "/public/assets/category-1.jpg"
+    },
+    {
+      "id": "1",
+      "image": "/public/assets/category-2.jpg"
+    },
+    {
+      "id": "2",
+      "image": "/public/assets/category-3.jpg"
+    }
+  ],
+  "getAllLatestProduct": [
+    {
+      "id": "0",
+      "productName": "Red Printed T-Shirt",
+      "price": 50,
+      "count": 1,
+      "rating": 5,
+      "availableQty": 5,
+      "image": "/public/assets/product-1.jpg"
+    },
+    {
+      "id": "1",
+      "productName": "Nike Shoe",
+      "price": 100,
+      "count": 1,
+      "rating": 3,
+      "availableQty": 4,
+      "image": "/public/assets/product-2.jpg"
+    },
+    {
+      "id": "2",
+      "productName": "Pajamas",
+      "price": 150,
+      "count": 1,
+      "rating": 5,
+      "availableQty": 3,
+      "image": "/public/assets/product-3.jpg"
+    },
+    {
+      "id": "3",
+      "productName": "Blue Nike T-Shirt",
+      "price": 200,
+      "count": 1,
+      "rating": 5,
+      "availableQty": 4,
+      "image": "/public/assets/product-4.jpg"
+    }
+  ],
+  "getAllProducts": [
+    {
+      "id": "0",
+      "productName": "Red Printed T-Shirt",
+      "price": 50,
+      "count": 1,
+      "rating": 5,
+      "availableQty": 5,
+      "image": "/public/assets/product-1.jpg"
+    },
+    {
+      "id": "1",
+      "productName": "Nike Shoe",
+      "price": 100,
+      "count": 1,
+      "rating": 3,
+      "availableQty": 4,
+      "image": "/public/assets/product-2.jpg"
+    },
+    {
+      "id": "2",
+      "productName": "Pajamas",
+      "price": 150,
+      "count": 1,
+      "rating": 5,
+      "availableQty": 3,
+      "image": "/public/assets/product-3.jpg"
+    },
+    {
+      "id": "3",
+      "productName": "Blue Nike T-Shirt",
+      "price": 200,
+      "count": 1,
+      "rating": 5,
+      "availableQty": 4,
+      "image": "/public/assets/product-4.jpg"
+    },
+    {
+      "id": "4",
+      "productName": "Sneakers",
+      "price": 150,
+      "count": 1,
+      "rating": 4,
+      "availableQty": 4,
+      "image": "/public/assets/product-5.jpg"
+    },
+    {
+      "id": "5",
+      "productName": "Black Nike T-Shirt",
+      "price": 100,
+      "count": 1,
+      "rating": 3,
+      "availableQty": 0,
+      "image": "/public/assets/product-6.jpg"
+    },
+    {
+      "id": "6",
+      "productName": "HRX Stocks",
+      "price": 80,
+      "count": 1,
+      "rating": 4,
+      "availableQty": 3,
+      "image": "/public/assets/product-7.jpg"
+    },
+    {
+      "id": "7",
+      "productName": "Aviator Watch",
+      "price": 200,
+      "count": 1,
+      "rating": 4,
+      "availableQty": 0,
+      "image": "/public/assets/product-8.jpg"
+    },
+    {
+      "id": "8",
+      "productName": "Racing Watch",
+      "price": 300,
+      "count": 1,
+      "rating": 5,
+      "availableQty": 5,
+      "image": "/public/assets/product-9.jpg"
+    },
+    {
+      "id": "9",
+      "productName": "Running Shoe",
+      "price": 150,
+      "count": 1,
+      "rating": 3,
+      "availableQty": 3,
+      "image": "/public/assets/product-10.jpg"
+    },
+    {
+      "id": "10",
+      "productName": "Roadster Shoe",
+      "price": 100,
+      "count": 1,
+      "rating": 3,
+      "availableQty": 3,
+      "image": "/public/assets/product-11.jpg"
+    },
+    {
+      "id": "11",
+      "productName": "Joggers",
+      "price": 90,
+      "count": 1,
+      "rating": 3,
+      "availableQty": 3,
+      "image": "/public/assets/product-12.jpg"
+    }
+  ],
+  "ShoppingCartProducts": [
+    {
+      "id": "0",
+      "productName": "Red Printed T-Shirt",
+      "price": 50,
+      "count": 1,
+      "rating": 5,
+      "availableQty": 5,
+      "image": "/public/assets/product-1.jpg"
+    }
+  ],
+  "Order": [
+    {
+      "id": "4e3d",
+      "createdBy": {
+        "id": null,
+        "fullName": "John Dewey",
+        "city": "Pune",
+        "phoneNumber": "0912334567",
+        "date": "2025-04-21T16:59",
+        "address": "Mango Road, Off Mabinton Estate"
+      },
+      "product": [
+        {
+          "id": "8",
+          "productName": "Racing Watch",
+          "price": 300,
+          "count": 1,
+          "rating": 5,
+          "availableQty": 5,
+          "image": "/public/assets/product-9.jpg"
+        }
+      ],
+      "grandTotal": 330,
+      "taxAmount": 30
+    }
+  ],
+  "ContactUs": [
+    {
+      "id": "6bea",
+      "firstName": "John",
+      "lastName": "Dewey",
+      "emailId": "dewey@gmail.com",
+      "phoneNumber": "0912334567",
+      "message": "Thank you for quick delivery of items I ordered for the other time."
+    }
+  ],
+  "Team": [
+    {
+      "id": "0",
+      "name": "Leslie Alexander",
+      "position": "Co-Founder / CEO",
+      "location": "Toronto, Canada",
+      "image": "/public/assets/alexander.jpeg"
+    },
+    {
+      "id": "1",
+      "name": "Michae Foster",
+      "position": "Co-Founder / CTO",
+      "location": "Glasgow, Scotland",
+      "image": "/public/assets/foster.jpeg"
+    },
+    {
+      "id": "2",
+      "name": "Dries Vincent",
+      "position": "Business Relations",
+      "location": "Niagara Falls, Canada",
+      "image": "/public/assets/vincent.jpeg"
+    }, 
+    {
+      "id": "3",
+      "name": "Tom Cook",
+      "position": "Director of Product",
+      "location": "Toronto, Canada",
+      "image": "/public/assets/tom.jpeg"
+    },
+    {
+      "id": "4",
+      "name": "Lindsay Walton",
+      "position": "Staff",
+      "location": "London, England",
+      "image": "/public/assets/walton.jpeg"
+    },
+    {
+      "id": "5",
+      "name": "Courtney Henry",
+      "position": "Staff",
+      "location": "Toronto, Canada",
+      "image": "/public/assets/courtney.jpeg"
+    },
+   
+    {
+      "id": "6",
+      "name": "Whitney Francis",
+      "position": "Staff",
+      "location": "Toronto, Canada",
+      "image": "/public/assets/francis.jpeg"
+    },
+    {
+      "id": "7",
+      "name": "Leonard Krasner",
+      "position": "Staff",
+      "location": "Toronto, Canada",
+      "image": "/public/assets/leonard.jpeg"
+    }
+  ]
+}

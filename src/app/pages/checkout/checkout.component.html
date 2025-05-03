@@ -101,7 +101,7 @@
                         <img class="img-fluid h-25 w-25 p-2" [src]="item.image" alt="" />
                         <div class="ps-3">
                             <p class="p-0 m-0 fw-semibold">{{ item.productName }}</p>
-                            <p class="p-0 m-0 fw-semibold">Price: {{ item.price | currency }}</p>
+                            <p class="p-0 m-0 fw-semibold">Price: {{ item.price * item.count | currency }}</p>
                             <input type="number" name="quantity" [(ngModel)]="item.count" placeholder="QTY"
                                 class="form-control form-control-sm w-25" />
                         </div>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="row border-top">
                             <div class="col-12 text-center mt-2">
-                                <div class="w-100 bg-black">
+                                <div class="w-100">
                                     @if(billForm.get('id')?.value == undefined){
                                     <button class="btn btn-danger rounded" (click)="placeOrder()"
                                         [disabled]="billForm.invalid">

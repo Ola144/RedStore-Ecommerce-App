@@ -10,6 +10,7 @@ import { map } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -24,6 +25,7 @@ export class ProductsComponent implements OnInit {
   @Input() rating: any[] = [];
 
   masterService: MasterService = inject(MasterService);
+  activeRoute: ActivatedRoute = inject(ActivatedRoute);
 
   isLoadProductsBtnVisible: boolean = false;
   isSearchBtnVisible: boolean = true;
@@ -34,6 +36,8 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProducts();
+
+    this.products = this.activeRoute.snapshot.data['products'];
 
     // this.rating = this.products.find(item => item.rating);
   }

@@ -5,7 +5,7 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Event, NavigationCancel, NavigationEnd, NavigationStart, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -16,5 +16,17 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  ngOnInit() {}
+
+  showLoader: boolean = false;
+  router: Router = inject(Router);
+
+  ngOnInit() {
+    this.router.events.subscribe((routerEvent: Event) => {
+      if (routerEvent instanceof NavigationStart) {
+        this.showLoader = true;
+      } else if (routerEvent instanceof NavigationEnd || routerEvent instanceof NavigationCancel) {
+        this.showLoader = false;
+      }
+    });
+  }
 }

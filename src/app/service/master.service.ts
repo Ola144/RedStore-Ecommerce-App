@@ -8,7 +8,7 @@ import { Login, Register, IProduct, CreateOrder, ContactUs, ITeam } from '../mod
   providedIn: 'root',
 })
 export class MasterService {
-  apiUrl: string = 'http://localhost:3000/';
+  apiUrl: string = 'https://redstoreapi-mh3m.onrender.com/';
   localUser: Login | any;
 
   priceLimit: number = 100;

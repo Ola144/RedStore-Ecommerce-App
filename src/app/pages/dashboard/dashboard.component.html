@@ -5,8 +5,7 @@
             <p class="text-secondary fw-bold mb-5">Success isn't always about greatness. It's about consistency.
                 <br>Consistent hard work gains success. Greatness will come.
             </p>
-            <button class="btn btn-danger rounded-5" routerLink="/products">Expore Now <img
-                    src="/public/assets/arrow-right.png" style="width: 20px" alt=""></button>
+            <button class="btn btn-danger rounded-5" routerLink="/products">Expore Now <i class="fa fa-arrow-right text-white"></i></button>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-23">
             <img [src]="bannerImg" style="width: 100%;">
@@ -43,7 +42,7 @@
         <h3>Latest Products</h3>
     </div>
     <div class="row">
-        @for (item of latetestProducts | async; track $index) {
+        @for (item of latestProducts | async; track $index) {
         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-3 hoverDiv productDiv">
             <app-product-card [product]="item"></app-product-card>
         </div>
@@ -62,8 +61,7 @@
             <h3 class="fw-bolder mb-2" style="font-size: 30px;">Smart Band 4</h3>
             <p class="mb-4">The Mi Smart Band 4 features a 39.9% larger (than Mi Band 3) AMOLED color full touch display
                 with adustable brightness, so everything is clear as can be.</p>
-            <button class="btn btn-danger rounded-5">By Now <img src="/public/assets/arrow-right.png"
-                    style="width: 20px" alt=""></button>
+            <button class="btn btn-danger rounded-5">By Now <i class="fa fa-arrow-right text-white "></i></button>
         </div>
     </div>
 </div>
@@ -106,23 +104,23 @@
     </div>
 </div>
 
-<div class="container" style="margin: 40px auto;">
-    <div class="row justify-content-center">
-        <div class="col-lg-2 col-md-4 col-sm-6 logoDiv">
+<div class="container" style="width: 100%; margin: 40px auto;">
+    <div class="row justify-content-center" style="margin: 0 auto;">
+        <div class="col-lg-2 col-md-6 col-sm-12 logoDiv">
             <img src="/public/assets/logo-godrej.png" alt="" class="logo">
         </div>
-        <div class="col-lg-2 col-md-4 col-sm-6 logoDiv">
+        <div class="col-lg-2 col-md-6 col-sm-12 logoDiv">
             <img src="/public/assets/logo-oppo.png" alt="" class="logo">
         </div>
-        <div class="col-lg-2 col-md-4 col-sm-6 logoDiv">
+        <div class="col-lg-2 col-md-6 col-sm-12 logoDiv">
             <img src="/public/assets/logo-coca-cola.png" alt="" class="logo">
         </div>
-        <div class="col-lg-2 col-md-4 col-sm-6 logoDiv">
+        <div class="col-lg-2 col-md-6 col-sm-12 logoDiv">
             <img src="/public/assets/logo-paypal.png" alt="" class="logo">
         </div>
-        <div class="col-lg-2 col-md-4 col-sm-6 logoDiv">
+        <div class="col-lg-2 col-md-6 col-sm-12">
             <img src="/public/assets/logo-philips.png" alt="" class="logo">
         </div>
-        <div class="col-lg-2 col-md-4 col-sm-6 d-none"></div>
+        <div class="col-lg-2 col-md-6 col-sm-12 d-none"></div>
     </div>
 </div>

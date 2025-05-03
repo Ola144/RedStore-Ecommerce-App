@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-light position-fixed top-0 w-100">
+<nav class="navbar navbar-expand-sm navbar-dark bg-light fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="dashboard">
       <img src="/public/assets/logo.png" style="width: 100px;" alt="Logo" />
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#redstorenavbar">
-      <span class="navbar-toggler-icon" style="color: #000;">
-        <img src="/public/assets/menu.png" style="width: 20px; height: 20px;" alt="">
+      <span class="navbar-toggler-icon text-black" style="color: #000;">
+        <i class="fa fa-bars text-black fs-1 ms-1"></i>
       </span>
     </button>
 
@@ -31,7 +31,7 @@
   </div>
   <button type="button" class="btn btn-outline-none cartBtn" data-bs-toggle="offcanvas" data-bs-target="#cart"
     [matBadge]="cartItems.length" matBadgePosition="above before" matBadgeSize="small">
-    <img src="/public/assets/cart.png" style="width: 30px; height: 30px;" alt="Cart" />
+    <i class="fa fa-shopping-cart text-black fs-1"></i>
   </button>
 </nav>
 

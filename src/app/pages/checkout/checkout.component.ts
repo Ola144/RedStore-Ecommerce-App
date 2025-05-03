@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { CustomValidators } from '../../Validators/RedStore.validator';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -23,6 +24,8 @@ export class CheckoutComponent implements OnInit {
 
   masterService: MasterService = inject(MasterService);
   toastr: ToastrService = inject(ToastrService);
+  activeRoute: ActivatedRoute = inject(ActivatedRoute);
+   
 
   billForm: FormGroup = new FormGroup({});
 
@@ -35,6 +38,8 @@ export class CheckoutComponent implements OnInit {
     this.getAllOrders();
 
     this.initializeForm();
+    
+    this.cartItems = this.activeRoute.snapshot.data['checkout'];
   }
 
   initializeForm(productData?: IOrder) {

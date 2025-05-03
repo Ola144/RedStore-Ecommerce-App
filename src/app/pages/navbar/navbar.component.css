@@ -1,7 +1,7 @@
 .cartBtn {
     position: absolute;
     top: 15px;
-    right: 95px;
+    right: 100px;
     padding: 0;
 }
 
@@ -17,7 +17,7 @@ a {
     cursor: pointer;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 575px) {
     .cartBtn {
     position: absolute;
     top: 15px;

@@ -1,0 +1,32 @@
+.loaderOuterDiv {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    overflow: hidden;
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+    width: 100%;
+    height: 2px;
+    transition: ease-in-out 10s;
+    transform: translateX(-100%);
+    animation: loader infinite 10s;
+    overflow: hidden !important;
+}
+
+@keyframes loader {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}

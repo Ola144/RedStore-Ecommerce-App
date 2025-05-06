@@ -1,9 +1,9 @@
 .account-page {
   padding: 50px 0;
   background: radial-gradient(#fff, #ffd6d6);
-  height: 100vh;
-  min-height: 100vh;
-  max-height: 100vh;
+  background-size: cover;
+  min-height: 100%;
+  width: 100%;
 }
 
 .form-container {
@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-.form-container span {
+.form-container .toggleSpan {
   font-weight: bold;
   padding: 0 10px;
   cursor: pointer;
@@ -92,4 +92,9 @@ form a {
   right: 2px;
   width: 20px;
   cursor: pointer;
+}
+
+.spinner {
+  width: 24px;
+  /* animation: spinner infinite 3s; */
 }

@@ -20,13 +20,19 @@
     border-bottom-left-radius: 5px;
 }
 
-.formDiv{
+.formDiv {
     width: 60%;
     margin: auto;
 }
 
 .card p {
-    text-align: j
-    ustify;
+    text-align: justify;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media (max-width: 760px) {
+    .formDiv {
+        width: 100%;
+        margin: auto;
+    }
 }

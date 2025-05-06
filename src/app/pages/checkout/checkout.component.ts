@@ -22,6 +22,9 @@ export class CheckoutComponent implements OnInit {
   isOrderPopUpVisible: boolean = false;
   isDeletePopUpVisible: boolean = false;
 
+  checkoutLoading: boolean = false;
+  deletetLoading: boolean = false;
+
   masterService: MasterService = inject(MasterService);
   toastr: ToastrService = inject(ToastrService);
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
@@ -47,10 +50,9 @@ export class CheckoutComponent implements OnInit {
       id: new FormControl(productData ? productData.id : undefined),
       fullName: new FormControl(productData ? productData.createdBy.fullName : '', [Validators.required, CustomValidators.fullNameSpaceAllowed, CustomValidators.firstLetterUppercase]),
       city: new FormControl(productData ? productData.createdBy.city : '', Validators.required),
-      phoneNumber: new FormControl(productData ? productData.createdBy.phoneNumber : '', [Validators.required, Validators.pattern('/^[0-9]{11}$/')]),
+      phoneNumber: new FormControl(productData ? productData.createdBy.phoneNumber : '', [Validators.required, Validators.pattern('^[0-9]{11}$')]),
       date: new FormControl(productData ? productData.createdBy.date : new Date(), Validators.required),
       address: new FormControl(productData ? productData.createdBy.address : '', Validators.required),
-      // landMark: new FormControl('', Validators.required),
     })
   }
 
@@ -85,15 +87,20 @@ export class CheckoutComponent implements OnInit {
   }
 
   placeOrder() {
+    this.checkoutLoading = true;
     const formValue = this.billForm.value;
     this.masterService.createOder(formValue, this.cartItems, this.getGrandTotal(), this.getTaxAmount()).subscribe({
       next: (res) => {
         if (res) {
-          this.toastr.success('The order is placed successfully!');
+          this.checkoutLoading = false;
+          window.scrollTo(0, 0);
           this.isOrderPopUpVisible = true;
           this.getAllOrders();
-        } else {
-          this.toastr.error('Something went wrong. Please try again!');
+        }
+      },
+      error: (err) => {
+        if (err) {
+          this.toastr.error('Please check your internet connection and try again!');
         }
       }
     })
@@ -147,24 +154,37 @@ export class CheckoutComponent implements OnInit {
   //   })
   // }
 
-  // onDeletOrderItem() {
-  //   let i = 0,
-  //     itemId = ''
+  showDeleteConfirmBox() {
+    this.isDeletePopUpVisible = true;
+    window.scrollTo(0, 0)
+  }
 
-  //   for (; i < this.orderList.length; i++){
-  //     itemId = this.orderList[i].id;
-  //   };
+  onDeletOrderItem() {
+    this.deletetLoading = true;
+    let i = 0,
+      itemId = ''
 
-  //   this.masterService.deleteOrderById(itemId).subscribe({
-  //     next: (res: any) => {
-  //       if (res) {
-  //         this.toastr.success('Order item deleted successfully');
-  //         this.getAllOrders();
-  //         this.isDeletePopUpVisible = false;
-  //       } else {
-  //         this.toastr.error('Something went wrong. Please try again!');
-  //       }
-  //     }
-  //   });
-  // };
+    for (; i < this.orderList.length; i++){
+      itemId = this.orderList[i].id;
+    };
+
+    this.masterService.deleteOrderById(itemId).subscribe({
+      next: (res: any) => {
+        if (res) {
+          this.toastr.success('Order item deleted successfully');
+          this.getAllOrders();
+          this.deletetLoading = false;
+          this.isDeletePopUpVisible = false;
+        } else {
+          
+        }
+      },
+      error: (err: any) => {
+        if (err) {
+          this.toastr.error('Please check your internet connection and try again!');
+          this.deletetLoading = false;
+        }
+      }
+    })
+  };
 }

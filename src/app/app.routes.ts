@@ -9,7 +9,6 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { redStoreGuard } from './guards/red-store.guard';
-import { redStoreCanActiveChildrenGuard } from './guards/red-store-can-active-children.guard';
 import { redStoreAboutResolve, redStoreCategoryPResolve, redStoreCheckoutResolve, redStoreFeaturedPResolve, redStoreLatestPResolve, redStoreResolve } from './guards/red-store-resolve.guard';
 
 export const routes: Routes = [
@@ -25,7 +24,7 @@ export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivateChild: [redStoreCanActiveChildrenGuard],
+    canActivate: [redStoreGuard],
     children: [
       {
         path: 'dashboard',

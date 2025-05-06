@@ -3,7 +3,6 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "../footer/footer.component";
 import { MasterService } from '../../service/master.service';
-import { windowTime } from 'rxjs';
 
 @Component({
   selector: 'app-layout',

@@ -14,7 +14,6 @@
 
 .logoDiv {
     margin-right: 20px;
-    padding-right: 15px;
 }
 
 .logo {
@@ -32,3 +31,12 @@
         flex-wrap: wrap !important;
     }
 }
+
+@media (max-width: 574px) {
+    .logoRow{
+        transform: translateX(50%);
+        width: 50%;
+        overflow: hidden;
+    }
+}
+

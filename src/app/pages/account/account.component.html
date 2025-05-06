@@ -4,51 +4,96 @@
       <div class="col-md-6">
         <img src="/public/assets/image1.png" width="100%" />
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 p-5">
         <div class="form-container">
           <div class="form-btn">
-            <span (click)="login()">Login</span>
-            <span (click)="register()">Register</span>
+            <span class="toggleSpan" (click)="login()">Login</span>
+            <span class="toggleSpan" (click)="register()">Register</span>
             <hr id="Indicator" #indicator />
           </div>
 
-          <form id="LoginForm" class="w-100" #loginForm>
+          <form id="LoginForm" class="w-100" #loginForm="ngForm" #logForm>
             <input type="text" class="form-control" placeholder="Username" name="username"
-              [(ngModel)]="loginUser.username" />
+              [(ngModel)]="loginUser.username" required #username="ngModel"
+              [class]="username.invalid && username.touched ? 'is-invalid' : ''" />
+            @if (username.invalid && username.touched) {
+            <div class="text-danger w-100">
+              @if (username.errors?.['required']) {
+              <span>*Username is a required field!</span>
+              }
+            </div>
+            }
             <div class="position-relative">
               <input type="password" class="form-control" placeholder="Password" name="password"
-                [(ngModel)]="loginUser.password" #loginPassword />
+                [(ngModel)]="loginUser.password" required #loginPassword="ngModel" #logPassword
+                [class]="loginPassword.invalid && loginPassword.touched ? 'is-invalid' : ''" />
+              @if (loginPassword.invalid && loginPassword.touched) {
+              <div class="text-danger w-100">
+                @if (loginPassword.errors?.['required']) {
+                <span>*Password is a required field!</span>
+                }
+              </div>
+              }
               @if (isShowIconVisible) {
-              <img src="/public/assets/show-icon.png" class="eye-icon" (click)="showLoginPassword()">
+              <i class="fa fa-eye eye-icon" (click)="showLoginPassword()"></i>
               } @else {
-              <img src="/public/assets/hide-icon.png" class="eye-icon" (click)="showLoginPassword()">
+              <i class="fa fa-eye-slash eye-icon" (click)="showLoginPassword()"></i>
               }
             </div>
 
-            <button type="button" (click)="onLogin()" class="btn btn-primary">Login</button>
+            <button type="button" (click)="onLogin()" class="btn btn-primary"
+              [disabled]="loginForm.invalid || loginLoading">
+              @if (loginLoading) {
+              <img src="/public/assets/spinner.gif" class="spinner">
+              } Login</button>
             <a>Forgot Password</a>
           </form>
 
-          <form id="RegForm" class="w-100" #regForm>
+          <form id="RegForm" class="w-100" #registrationForm="ngForm" #regForm>
             <input type="text" class="form-control" placeholder="Username" name="username"
-              [(ngModel)]="registerUser.username" />
-            <input type="email" class="form-control" placeholder="Email" name="email"
-              [(ngModel)]="registerUser.email" />
+              [(ngModel)]="registerUser.username" required #registerUsername="ngModel"
+              [class]="registerUsername.invalid && registerUsername.touched ? 'is-invalid' : ''" />
+            @if (registerUsername.invalid && registerUsername.touched) {
+            <div class="text-danger w-100">
+              @if (registerUsername.errors?.['required']) {
+              <span>*Username is a required field!</span>
+              }
+            </div>
+            }
+            <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)]="registerUser.email"
+              required email #email="ngModel" [class]="email.invalid && email.touched ? 'is-invalid' : ''" />
+            @if (email.invalid && email.touched) {
+            <div class="text-danger w-100">
+              @if (email.errors?.['required']) {
+              <span>*Email is a required field!</span>
+              }
+              @if (email.errors?.['email']) {
+              <span>*Please provide valid email address!</span>
+              }
+            </div>
+            }
             <div class="position-relative">
               <input type="password" class="form-control" placeholder="Password" name="password"
-                [(ngModel)]="registerUser.password" #registerPassword />
-
-              @if (isShowIconVisible) {
-              <img src="/public/assets/show-icon.png" class="eye-icon" (click)="showRegisterPassword()">
-              } @else {
-              <img src="/public/assets/hide-icon.png" class="eye-icon" (click)="showRegisterPassword()">
+                [(ngModel)]="registerUser.password" required #registerPassword="ngModel" #regPassword
+                [class]="registerPassword.invalid && registerPassword.touched ? 'is-invalid' : ''" />
+              @if (registerPassword.invalid && registerPassword.touched) {
+              <div class="text-danger w-100">
+                @if (registerPassword.errors?.['required']) {
+                <span>*Password is a required field!</span>
+                }
+              </div>
               }
-
-
+              @if (isShowIconVisible) {
+              <i class="fa fa-eye eye-icon" (click)="showRegisterPassword()"></i>
+              } @else {
+              <i class="fa fa-eye-slash eye-icon" (click)="showRegisterPassword()"></i>
+              }
             </div>
-
-            <button type="button" class="btn btn-primary" (click)="onRegister()">
-              Register
+            <button type="button" class="btn btn-primary" (click)="onRegister()"
+              [disabled]="registrationForm.invalid || registerLoading">
+              @if (registerLoading) {
+              <img src="/public/assets/spinner.gif" class="spinner">
+              } Register
             </button>
           </form>
         </div>

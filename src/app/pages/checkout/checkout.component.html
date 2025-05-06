@@ -78,10 +78,6 @@
                             </div>
                             }
                         </div>
-                        <!-- <div class="col-lg-6 col-md-6">
-                            <textarea placeholder="Landmark" class="form-control m-2" rows="3" name="landMark"
-                                formControlName="landMark"></textarea>
-                        </div> -->
                     </form>
 
                     <!-- form end -->
@@ -129,13 +125,11 @@
                                     @if(billForm.get('id')?.value == undefined){
                                     <button class="btn btn-danger rounded" (click)="placeOrder()"
                                         [disabled]="billForm.invalid">
+                                        @if(checkoutLoading){
+                                        <img src="/public/assets/spinner.gif" alt="" style="width: 24px;">
+                                        }
                                         Place Order
                                     </button>
-                                    } @else {
-                                    <!-- <button class="btn btn-danger rounded" (click)="onUpdateProduct()"
-                                        [disabled]="billForm.invalid">
-                                        Update Order
-                                    </button> -->
                                     }
                                 </div>
                             </div>
@@ -170,7 +164,7 @@
                     <th style="font-size: 13px;">Price</th>
                     <th style="font-size: 13px;">Tax (10%)</th>
                     <th style="font-size: 13px;">Grand Total</th>
-                    <!-- <th style="font-size: 13px;">Action</th> -->
+                    <th style="font-size: 13px;">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -199,14 +193,11 @@
                     <td>
                         {{billItem.grandTotal | currency}}
                     </td>
-                    <!-- <td>
-                        <button class="btn btn-outline-none btn-sm me-1 p-0" (click)="onEdit(billItem)">
-                            <img src="/public/assets/edit-icon2.png" style="width: 20px" title="Edit">
+                    <td>
+                        <button class="btn btn-outline-none btn-sm p-0" (click)="showDeleteConfirmBox()">
+                            <i class="fa fa-trash text-danger" style="font-size: 15px;"></i>
                         </button>
-                        <button class="btn btn-outline-none btn-sm p-0" (click)="isDeletePopUpVisible = true">
-                            <img src="/public/assets/delete-icon.png" style="width: 20px" title="Delete">
-                        </button>
-                    </td> -->
+                    </td>
                 </tr>
                 }
 
@@ -223,8 +214,13 @@
     <div class="deleteInnerPopup">
         <p class="text-dark text-center my-5">Are you sure want to delete the order item?</p>
         <div class="d-flex align-items-center justify-content-between m-3">
-            <button class="btn btn-secondary" (click)="isDeletePopUpVisible = false">Cancel</button>
-            <!-- <button class="btn btn-danger" (click)="onDeletOrderItem()">Delete</button> -->
+            <button class="btn btn-secondary me-1" (click)="isDeletePopUpVisible = false">Cancel</button>
+            <button class="btn btn-danger me-1" [disabled]="deletetLoading" (click)="onDeletOrderItem()">
+                @if(deletetLoading){
+                <img src="/public/assets/spinner.gif" style="width: 24px">
+                }
+
+                Delete</button>
         </div>
     </div>
 </div>
